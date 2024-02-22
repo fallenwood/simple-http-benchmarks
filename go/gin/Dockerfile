@@ -1,0 +1,15 @@
+FROM debian:12-slim AS base
+EXPOSE 5000
+WORKDIR /app
+
+FROM registry.docker.com/library/golang:1.22 as build
+WORKDIR /src
+COPY go.mod /src/go.mod
+COPY main.go /src/main.go
+COPY go.sum /src/go.sum
+ENV CGO_ENABLED=0
+RUN go build
+
+FROM base as final
+COPY --from=build /src/gin /app/gin
+ENTRYPOINT ["./gin"]
