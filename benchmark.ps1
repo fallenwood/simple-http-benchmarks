@@ -1,6 +1,7 @@
 Import-Module "./images.psm1"
 
 $container = Get-Container
+$wrk = Get-Wrk
 
 $images = Get-Images
 
@@ -20,7 +21,7 @@ foreach ($image in $images) {
     Start-Sleep -Milliseconds 1000
 
     foreach ($concurrence in $concurrences) {
-        Invoke-Expression "wrknet -c $concurrence -d $duration http://127.0.0.1:$port"
+        Invoke-Expression "$wrk -c $concurrence -d $duration http://127.0.0.1:$port"
 
         # $resp.Add(@{
         #     Tag = $image.Tag;

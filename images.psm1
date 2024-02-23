@@ -36,6 +36,10 @@ function Get-Container {
     return $ENV:BENCH_CONTAINER ?? "docker"
 }
 
+function Get-Wrk {
+    return $ENV:BENCH_WRK ?? "wrknet";
+}
+
 function Get-Port {
     return $port
 }
@@ -45,4 +49,5 @@ Export-ModuleMember -Function Get-ImageTag
 Export-ModuleMember -Function Get-TagName
 Export-ModuleMember -Function Get-Images
 Export-ModuleMember -Function Get-Container
+Export-ModuleMember -Function Get-Wrk
 Export-ModuleMember -Function Get-Port
