@@ -21,8 +21,10 @@ function Get-ImageTag {
 }
 
 $images = @{ Tag = "dotnet-aot"; Dockerfile="./dotnet/aot/Dockerfile"; Directory="./dotnet/aot"; },
+          @{ Tag = "dotnet-jit"; Dockerfile="./dotnet/jit/Dockerfile"; Directory="./dotnet/jit"; },
           @{ Tag = "go-gin"; Dockerfile="./go/gin/Dockerfile"; Directory="./go/gin"; },
-          @{ Tag = "go-gin-cgo"; Dockerfile="./go/gin/Dockerfile.cgo"; Directory="./go/gin"; }
+          @{ Tag = "go-gin-cgo"; Dockerfile="./go/gin/Dockerfile.cgo"; Directory="./go/gin"; },
+          @{ Tag = "rust-axum"; Dockerfile="./rust/axum/Dockerfile"; Directory="./rust/axum"; }
 
 function Get-Images {
     return $images
