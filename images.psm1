@@ -25,7 +25,8 @@ $images = @{ Tag = "dotnet-aot"; Dockerfile="./dotnet/aot/Dockerfile"; Directory
           @{ Tag = "go-gin"; Dockerfile="./go/gin/Dockerfile"; Directory="./go/gin"; },
           @{ Tag = "go-gin-cgo"; Dockerfile="./go/gin/Dockerfile.cgo"; Directory="./go/gin"; },
           @{ Tag = "rust-axum"; Dockerfile="./rust/axum/Dockerfile"; Directory="./rust/axum"; },
-          @{ Tag = "spring-tomcat-jit"; Dockerfile="./kotlin/spring-tomcat/Dockerfile"; Directory="./kotlin/spring-tomcat"; }
+          @{ Tag = "spring-tomcat-jit"; Dockerfile="./kotlin/spring-tomcat/Dockerfile"; Directory="./kotlin/spring-tomcat"; },
+          @{ Tag = "spring-jetty-jit"; Dockerfile="./kotlin/spring-jetty/Dockerfile"; Directory="./kotlin/spring-jetty"; }
 
 function Get-Images {
     return $images
