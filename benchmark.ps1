@@ -18,7 +18,12 @@ foreach ($image in $images) {
 
     Write-Host "Benchmarking $tag with $sha"
 
-    Start-Sleep -Milliseconds 1000
+    # fuck you Java
+    if ($tag.Contains("spring")) {
+        Start-Sleep -Milliseconds 10000
+    } else {
+        Start-Sleep -Milliseconds 1000
+    }
 
     foreach ($concurrence in $concurrences) {
         Invoke-Expression "$wrk -c $concurrence -d $duration http://127.0.0.1:$port"
