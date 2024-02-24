@@ -1,3 +1,7 @@
+ param (
+    [int]$skip = 0,
+ )
+
 Import-Module "./images.psm1"
 
 $container = Get-Container
@@ -25,9 +29,16 @@ foreach ($image in $images) {
         Start-Sleep -Milliseconds 1000
     }
 
-    foreach ($concurrence in $concurrences) {
-        Invoke-Expression "$wrk -c $concurrence -d $duration http://127.0.0.1:$port"
+    $index = 0
 
+    foreach ($concurrence in $concurrences) {
+        if ($index -lt $skip) {
+            $index++
+            continue
+        }
+
+        Invoke-Expression "$wrk -c $concurrence -d $duration http://127.0.0.1:$port"
+        $index++
         # $resp.Add(@{
         #     Tag = $image.Tag;
         #     NumTasks = $numTask

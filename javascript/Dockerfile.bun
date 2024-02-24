@@ -1,0 +1,10 @@
+FROM registry.docker.com/oven/bun@sha256:ac6cf04f6af504e1b3ad129a91ecbf1f982eeb825807b2efa4d7d41dc4f17a2c AS base
+WORKDIR /app
+
+FROM base as build
+COPY . .
+RUN bun install
+
+FROM base AS final
+COPY --from=build /app /app
+ENTRYPOINT ["bun", "app.js"]
