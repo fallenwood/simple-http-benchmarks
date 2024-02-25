@@ -1,5 +1,5 @@
  param (
-    [int]$skip = 0,
+    [int]$skip = 0
  )
 
 Import-Module "./images.psm1"
