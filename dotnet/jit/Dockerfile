@@ -10,6 +10,7 @@ RUN dotnet publish -c Release -o out
 FROM base AS final
 COPY --from=build /src/out /app
 COPY appsettings.json /app/appsettings.json
+EXPOSE 5000
 
 ENV DOTNET_gcServer=1
 ENV ASPNETCORE_URLS=http://+:5000

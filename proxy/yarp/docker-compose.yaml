@@ -1,0 +1,14 @@
+services:
+  yarp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: "host"
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+    volumes:
+      - "./appsettings.json:/app/appsettings.json"
+
+  backend:
+    image: "backend:dotnet"
+    network_mode: "host"

@@ -1,0 +1,10 @@
+services:
+  nginx:
+    image: "registry.docker.com/library/nginx:1.25.4"
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+    network_mode: "host"
+
+  backend:
+    image: "backend:dotnet"
+    network_mode: "host"
