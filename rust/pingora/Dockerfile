@@ -13,4 +13,5 @@ RUN cargo build --release
 
 FROM base AS final
 COPY --from=build /src/target/release/pingora /app/pingora
+COPY ./config.yaml /app/config.yaml
 ENTRYPOINT ["./pingora"]
