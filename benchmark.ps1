@@ -25,7 +25,9 @@ foreach ($image in $images) {
     # fuck you Java
     if ($tag.Contains("spring")) {
         Start-Sleep -Milliseconds 10000
-    } else {
+    } elseif ($tag.Contains("node")) {
+        Start-Sleep -Milliseconds 10000
+    }else {
         Start-Sleep -Milliseconds 1000
     }
 
