@@ -1,6 +1,6 @@
-[submodule "Crow"]
+[submodule "cpp/crow/Crow"]
 	path = cpp/crow/Crow
 	url = https://github.com/CrowCpp/Crow
-[submodule "asio"]
+[submodule "cpp/crow/asio"]
 	path = cpp/crow/asio
 	url = https://github.com/chriskohlhoff/asio
